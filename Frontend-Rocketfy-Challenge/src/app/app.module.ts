@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      { path: 'products', component: ProductListComponent }
+      { path: '', component: ProductListComponent }
     ]),
     FormsModule
   ],
