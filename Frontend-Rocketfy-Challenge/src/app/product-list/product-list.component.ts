@@ -9,5 +9,29 @@ import { provideProtractorTestingSupport } from '@angular/platform-browser';
 })
 export class ProductListComponent {
 
+
     product_records = product_records;
+  
+    ngOnInit() {
+      
+      this.filteredProducts = this.product_records;
+    }
+
+    filterName: string = '';
+    filterCategory: string | null = null;
+  
+    filteredProducts: any[] = [];
+  
+    onCategoryChange(newCategory: string) {
+      this.filterCategory = newCategory;
+      this.applyFilters();
+    }
+
+    applyFilters() {
+      this.filteredProducts = this.product_records.filter((product) => {
+        const nameMatch = product.name.toLowerCase().includes(this.filterName.toLowerCase());
+        const categoryMatch = !this.filterCategory || product.category === this.filterCategory;
+        return nameMatch && categoryMatch;
+      });
+    }
 }

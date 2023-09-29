@@ -1,12 +1,25 @@
-<div classname="container">
-    <div *ngFor="let product of product_records" class="card card-compact w-96 bg-base-500 shadow-xl m-0">
-        <figure><img src="../../assets/img.jpg"> </figure>
+<div>
+    <input type="text" [(ngModel)]="filterName" placeholder="Filter by Name" (input)="applyFilters()" />
+    <select [(ngModel)]="filterCategory" (ngModelChange)="onCategoryChange($event)">
+        <option value="">All Categories</option>
+        <option value="clothing">Clothing</option>
+        <option value="tech">Tech</option>
+    </select>
+</div>
+
+<div class="carousel rounded-box max-w-screen-xl">
+    <div *ngFor="let product of filteredProducts" class="carousel-item card card-compact rounded-box w-96 bg-base-100 shadow-xl border"  >    
+        <img src="../../assets/{{product.img_url}}" alt="Burger" class="rounded-box max-w-xs" />
         <div class="card-body">
-            <h2 class="card-title"> {{product.name}} </h2>
-            <p> {{product.description}} </p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+                <div class="card-title m-2 text-center">
+                    {{product.name}}
+                </div>
+                <div class="card-actions justify-end horizontal">
+                    <div class="badge badge-outline">{{product.category}}</div>
+                    <button class="btn btn-secondary"> Buy!</button>
+                </div>
             </div>
+
         </div>
-    </div>
+
 </div>

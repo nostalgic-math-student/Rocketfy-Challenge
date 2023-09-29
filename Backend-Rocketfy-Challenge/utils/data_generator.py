@@ -61,7 +61,7 @@ def create_json_file(filename, num_records, image_path1, image_path2):
         json.dump(records, file, indent=4)
 
 # list of random pictures for product description
-image_paths1 = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png"]
-image_paths2 = ["img6.png", "img7.png", "img8.png", "img9.png", "img10.png"]
+image_paths1 = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg"]
+image_paths2 = ["img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg", "img10jpng"]
 # Dummy information created
 create_json_file("product_records.json", 150, image_paths1, image_paths2)
