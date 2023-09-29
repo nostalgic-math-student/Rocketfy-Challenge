@@ -9,17 +9,21 @@ import { provideProtractorTestingSupport } from '@angular/platform-browser';
 })
 export class ProductListComponent {
 
+    // Products from JSON
 
     product_records = product_records;
   
+    // Filter logic
+
     ngOnInit() {
       
       this.filteredProducts = this.product_records;
     }
 
+    // Filter variables 
+    
     filterName: string = '';
     filterCategory: string | null = null;
-  
     filteredProducts: any[] = [];
   
     onCategoryChange(newCategory: string) {

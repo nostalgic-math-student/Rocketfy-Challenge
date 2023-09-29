@@ -1,12 +1,14 @@
-<div>
-    <input type="text" [(ngModel)]="filterName" placeholder="Filter by Name" (input)="applyFilters()" />
-    <select [(ngModel)]="filterCategory" (ngModelChange)="onCategoryChange($event)">
+<!-- Filter bar -->
+<div class="m-4">
+    <input type="text" class="input input-bordered input-primary w-full m-4 max-w-xs" [(ngModel)]="filterName" placeholder="Filter by Name" (input)="applyFilters()" />
+    <select [(ngModel)]="filterCategory" (ngModelChange)="onCategoryChange($event)" placeholder="Filter by Category">
         <option value="">All Categories</option>
         <option value="clothing">Clothing</option>
         <option value="tech">Tech</option>
     </select>
 </div>
 
+<!-- Display filtered products -->
 <div class="carousel rounded-box max-w-screen-xl">
     <div *ngFor="let product of filteredProducts" class="carousel-item card card-compact rounded-box w-96 bg-base-100 shadow-xl border"  >    
         <img src="../../assets/{{product.img_url}}" alt="Burger" class="rounded-box max-w-xs" />
